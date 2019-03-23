@@ -1,4 +1,4 @@
-package com.vjgarcia.library;
+package com.vjgarcia.glidefluenttransformations;
 
 import org.junit.Test;
 

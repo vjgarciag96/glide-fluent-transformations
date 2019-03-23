@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GlideFluentTransformations</string>
+    <string name="title_activity_demo">Glide Transformations!!</string>
+    <string name="top_crop_demo">Top crop demo</string>
 </resources>
