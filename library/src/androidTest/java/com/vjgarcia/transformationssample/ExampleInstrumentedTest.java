@@ -1,4 +1,4 @@
-package com.vjgarcia.library;
+package com.vjgarcia.glidefluenttransformations;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

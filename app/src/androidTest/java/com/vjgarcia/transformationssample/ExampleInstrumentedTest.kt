@@ -1,4 +1,4 @@
-package com.vjgarcia.glidefluenttransformations
+package com.vjgarcia.transformationssample
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
