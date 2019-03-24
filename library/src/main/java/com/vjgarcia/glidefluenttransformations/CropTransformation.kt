@@ -27,7 +27,7 @@ class CropTransformation internal constructor(private val cropType: CropType) : 
             return toTransform
         }
 
-        val bitmap = pool.get(outWidth, outHeight, Bitmap.Config.ARGB_8888).apply { setHasAlpha(true) }
+        val bitmap = pool.get(outWidth, outHeight, getNonNullConfig(toTransform)).apply { setHasAlpha(true) }
 
         val scaleX = outWidth.toFloat() / toTransform.width
         val scaleY = outHeight.toFloat() / toTransform.height
@@ -54,6 +54,14 @@ class CropTransformation internal constructor(private val cropType: CropType) : 
         CropType.TOP -> 0F
         CropType.BOTTOM -> (height - scaledHeight)
         else -> (height - scaledHeight) / 2
+    }
+
+    private fun getNonNullConfig(bitmap: Bitmap): Bitmap.Config {
+        if (bitmap.config == null) {
+            return Bitmap.Config.ARGB_8888
+        }
+
+        return bitmap.config
     }
 
     private companion object {
