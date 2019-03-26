@@ -6,4 +6,4 @@ Glide fluent transformation is a library written in Kotlin that allows you to ad
 ### Set Up
 Add the next dependency in the build.gradle of the android module where you want to use this library:
 
-`compile 'com.vjgarcia:glide-fluent-transformations:0.0.3`
+`implementation "com.vjgarcia:glide-fluent-transformations:0.0.3"`
