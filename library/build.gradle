@@ -2,6 +2,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.jfrog.bintray'
+
+ext {
+    PUBLISH_GROUP_ID = 'com.vjgarcia'
+    PUBLISH_ARTIFACT_ID = 'glide-fluent-transformations'
+    PUBLISH_VERSION = '0.0.3'
+    NAME = "Glide Fluent Transformations"
+    DESCRIPTION = "Additional transformation for glide library with a fluent syntax for kotlin"
+    WEBSITE = "https://github.com/vjgarciag96/glide-fluent-transformations"
+}
 
 android {
     compileSdkVersion 28
@@ -40,7 +50,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
-
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.robolectric:robolectric:4.2'
     testImplementation 'androidx.test:core:1.1.0'
@@ -53,3 +62,5 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply from: 'publish.gradle'
