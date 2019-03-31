@@ -1,17 +1,18 @@
 package com.vjgarcia.glidefluenttransformations.blur;
 
-import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import com.vjgarcia.glidefluenttransformations.BuildConfig;
+import org.jetbrains.annotations.NotNull;
 
 /*
  * More info at http://stackoverflow.com/questions/8218438
  */
 public class BoxBlur implements Blur {
 
-    public Bitmap run(Bitmap bitmap, int radius) {
+    @NotNull
+    @Override
+    public Bitmap run(@NotNull Bitmap bitmap, int radius) {
         if ((radius & 1) == 0) {
             throw new IllegalArgumentException("Range must be odd");
         }
@@ -71,7 +72,7 @@ public class BoxBlur implements Blur {
                 }
             }
 
-            System.arraycopy(newColors, 0, pixels, index + 0, w);
+            System.arraycopy(newColors, 0, pixels, index, w);
 
             index += w;
         }
