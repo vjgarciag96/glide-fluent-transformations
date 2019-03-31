@@ -1,26 +1,30 @@
 package com.vjgarcia.glidefluenttransformations.blur;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import com.vjgarcia.glidefluenttransformations.BuildConfig;
 
 /*
  * More info at http://stackoverflow.com/questions/8218438
  */
 public class BoxBlur implements Blur {
 
-    public Bitmap run(Bitmap bmp, int radius) {
-        assert (radius & 1) == 0 : "Range must be odd.";
+    public Bitmap run(Bitmap bitmap, int radius) {
+        if ((radius & 1) == 0) {
+            throw new IllegalArgumentException("Range must be odd");
+        }
 
-        Bitmap blurred = Bitmap.createBitmap(bmp.getWidth(), bmp.getHeight(),
+        Bitmap blurred = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(),
                 Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(blurred);
 
-        int w = bmp.getWidth();
-        int h = bmp.getHeight();
+        int w = bitmap.getWidth();
+        int h = bitmap.getHeight();
 
-        int[] pixels = new int[bmp.getWidth() * bmp.getHeight()];
-        bmp.getPixels(pixels, 0, w, 0, 0, w, h);
+        int[] pixels = new int[bitmap.getWidth() * bitmap.getHeight()];
+        bitmap.getPixels(pixels, 0, w, 0, 0, w, h);
 
         boxBlurHorizontal(pixels, w, h, radius / 2);
         boxBlurVertical(pixels, w, h, radius / 2);
