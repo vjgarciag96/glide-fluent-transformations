@@ -7,7 +7,7 @@ apply plugin: 'com.jfrog.bintray'
 ext {
     PUBLISH_GROUP_ID = 'com.vjgarcia'
     PUBLISH_ARTIFACT_ID = 'glide-fluent-transformations'
-    PUBLISH_VERSION = '0.0.3'
+    PUBLISH_VERSION = '0.0.4'
     NAME = "Glide Fluent Transformations"
     DESCRIPTION = "Additional transformation for glide library with a fluent syntax for kotlin"
     WEBSITE = "https://github.com/vjgarciag96/glide-fluent-transformations"
