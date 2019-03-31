@@ -68,4 +68,34 @@
                 android:layout_gravity="end"
                 android:contentDescription="@string/top_crop_demo"/>
     </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+        <ImageView
+                android:id="@+id/yellow_color_filter_image"
+                android:layout_width="@dimen/sample_image_side_size"
+                android:layout_height="@dimen/sample_image_side_size"
+                tools:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic"
+                android:layout_gravity="start"
+                android:contentDescription="@string/color_filter_demo"/>
+        <ImageView
+                android:id="@+id/red_color_filter_image"
+                android:layout_width="@dimen/sample_image_side_size"
+                android:layout_height="@dimen/sample_image_side_size"
+                tools:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic"
+                android:layout_gravity="end"
+                android:contentDescription="@string/color_filter_demo"/>
+        <ImageView
+                android:id="@+id/blue_color_filter_image"
+                android:layout_width="@dimen/sample_image_side_size"
+                android:layout_height="@dimen/sample_image_side_size"
+                tools:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic"
+                android:layout_gravity="end"
+                android:contentDescription="@string/color_filter_demo"/>
+    </LinearLayout>
 </LinearLayout>

@@ -1,14 +1,12 @@
 package com.vjgarcia.transformationssample
 
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.vjgarcia.glidefluenttransformations.bottomCrop
-import com.vjgarcia.glidefluenttransformations.leftCrop
-import com.vjgarcia.glidefluenttransformations.rightCrop
-import com.vjgarcia.glidefluenttransformations.topCrop
+import com.vjgarcia.glidefluenttransformations.*
 
 class DemoActivity : AppCompatActivity() {
 
@@ -18,6 +16,10 @@ class DemoActivity : AppCompatActivity() {
     private lateinit var rightCropImage: ImageView
     private lateinit var anotherCenterCropImage: ImageView
     private lateinit var leftCropImage: ImageView
+
+    private lateinit var yellowColorFilterImage: ImageView
+    private lateinit var redColorFilterImage: ImageView
+    private lateinit var blueColorFilterImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +32,16 @@ class DemoActivity : AppCompatActivity() {
         anotherCenterCropImage = findViewById(R.id.another_center_crop_image)
         rightCropImage = findViewById(R.id.right_crop_image)
 
+        yellowColorFilterImage = findViewById(R.id.yellow_color_filter_image)
+        redColorFilterImage = findViewById(R.id.red_color_filter_image)
+        blueColorFilterImage = findViewById(R.id.blue_color_filter_image)
+
         setImages()
     }
 
     private fun setImages() {
         val imageUrl =
-            "https://img.buzzfeed.com/buzzfeed-static/static/enhanced/terminal01/2011/4/20/11/enhanced-buzz-32121-1303312216-6.jpg"
+            "https://images-na.ssl-images-amazon.com/images/I/41HXUK8edZL.png"
         val anotherImageUrl =
             "https://cdn-images-1.medium.com/max/2600/1*0ubYRV_WNR9iYrzUAVINHw.jpeg"
 
@@ -68,6 +74,24 @@ class DemoActivity : AppCompatActivity() {
             .load(Uri.parse(anotherImageUrl))
             .rightCrop()
             .into(rightCropImage)
+
+        Glide.with(this)
+            .load(Uri.parse(anotherImageUrl))
+            .centerCrop()
+            .colorMask(Color.argb(100, 255, 255, 0))
+            .into(yellowColorFilterImage)
+
+        Glide.with(this)
+            .load(Uri.parse(anotherImageUrl))
+            .centerCrop()
+            .colorMask(Color.argb(100, 255, 0, 0))
+            .into(redColorFilterImage)
+
+        Glide.with(this)
+            .load(Uri.parse(anotherImageUrl))
+            .centerCrop()
+            .colorMask(Color.argb(100, 0, 0, 255))
+            .into(blueColorFilterImage)
     }
 
 }
