@@ -14,7 +14,7 @@ class ColorMaskTransformation internal constructor(private val argbColor: Int) :
             toTransform.width,
             toTransform.height,
             TransformationUtils.getNonNullConfig(toTransform)
-        )
+        ).apply { setHasAlpha(true) }
 
         val paint = Paint()
         paint.isAntiAlias = true

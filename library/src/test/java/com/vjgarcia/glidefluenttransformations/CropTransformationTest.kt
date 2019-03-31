@@ -15,19 +15,14 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
-@RunWith(RobolectricTestRunner::class)
-@Config(manifest = Config.NONE, sdk = [28])
-class TopCropTest {
+class CropTransformationTest: GlideTest() {
 
     private val context: Application = ApplicationProvider.getApplicationContext()
     private val bitmapPool: BitmapPool = mockk()
     private val resource: Resource<Bitmap> = mockk()
 
-    private val sut = CropTransformation(cropType = CropTransformation.CropType.TOP)
+    private val sut = CropTransformation(cropType = Fixture.anyCropTransformationType)
 
     @Before
     fun setUp() {
@@ -117,10 +112,10 @@ class TopCropTest {
             height,
             Bitmap.Config.ARGB_8888
         )
-
     }
 
     private companion object Fixture {
+        val anyCropTransformationType = CropTransformation.CropType.LEFT
         const val anyWidth = 100
         const val anyHeight = 100
         const val anyOtherWidth = 300

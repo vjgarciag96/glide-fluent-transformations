@@ -8,7 +8,6 @@ object TransformationUtils {
         if (bitmap.config == null) {
             return Bitmap.Config.ARGB_8888
         }
-
         return bitmap.config
     }
 }
