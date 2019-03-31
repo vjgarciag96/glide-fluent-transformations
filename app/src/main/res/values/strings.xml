@@ -3,4 +3,5 @@
     <string name="title_activity_demo">Glide Transformations!!</string>
     <string name="top_crop_demo">Top crop demo</string>
     <string name="color_filter_demo">Color Filter Demo</string>
+    <string name="blur_demo">Blur demo</string>
 </resources>

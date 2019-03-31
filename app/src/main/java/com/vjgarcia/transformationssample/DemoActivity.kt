@@ -21,6 +21,10 @@ class DemoActivity : AppCompatActivity() {
     private lateinit var redColorFilterImage: ImageView
     private lateinit var blueColorFilterImage: ImageView
 
+    private lateinit var gaussianFastBlurImage: ImageView
+    private lateinit var boxBlurImage: ImageView
+    private lateinit var superFastBlurImage: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo)
@@ -35,6 +39,10 @@ class DemoActivity : AppCompatActivity() {
         yellowColorFilterImage = findViewById(R.id.yellow_color_filter_image)
         redColorFilterImage = findViewById(R.id.red_color_filter_image)
         blueColorFilterImage = findViewById(R.id.blue_color_filter_image)
+
+        gaussianFastBlurImage = findViewById(R.id.gaussian_fast_blur_demo_image)
+        boxBlurImage = findViewById(R.id.box_blur_demo_image)
+        superFastBlurImage = findViewById(R.id.super_fast_blur_demo_image)
 
         setImages()
     }
@@ -92,7 +100,21 @@ class DemoActivity : AppCompatActivity() {
             .centerCrop()
             .colorMask(Color.argb(100, 0, 0, 255))
             .into(blueColorFilterImage)
-    }
 
+        Glide.with(this)
+            .load(Uri.parse(anotherImageUrl))
+            .blur(radius = 25, blurAlgorithm = BlurTransformation.BlurAlgorithm.BOX)
+            .into(boxBlurImage)
+
+        Glide.with(this)
+            .load(Uri.parse(anotherImageUrl))
+            .blur(radius = 25, blurAlgorithm = BlurTransformation.BlurAlgorithm.GAUSSIAN_FAST)
+            .into(gaussianFastBlurImage)
+
+        Glide.with(this)
+            .load(Uri.parse(anotherImageUrl))
+            .blur(radius = 25, blurAlgorithm = BlurTransformation.BlurAlgorithm.SUPER_FAST)
+            .into(superFastBlurImage)
+    }
 }
 
